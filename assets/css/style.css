@@ -1,0 +1,67 @@
+/* Colmena · paleta gris y amarillo */
+:root{
+  --accent:#f2b705; --accent-d:#d9a400; --on-accent:#1f1f1f; --link:#8a6400;
+  --bg:#e9e9eb; --card:#fff; --text:#1d1d1f; --muted:#66666b;
+  --line:#d4d4d8; --hover:#dcdce0; --dark:#3f3f46; --red:#c81e3a; --green:#1f7a3d;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --accent:#f5c518; --accent-d:#e0b100; --link:#f5c518;
+    --bg:#161616; --card:#232323; --text:#ececec; --muted:#a3a3a3;
+    --line:#3a3a3a; --hover:#333; --green:#6fcf8a; --red:#ff7a8d;
+    color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.4 system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.muted{color:var(--muted)}
+
+/* ---------- Login y registro ---------- */
+.auth-page .auth{min-height:100vh;display:flex;align-items:center;justify-content:center;gap:80px;padding:24px;flex-wrap:wrap}
+.intro{max-width:460px}
+.intro h1{color:var(--link);font-size:56px;margin:0 0 8px;letter-spacing:-2px}
+.intro p{font-size:22px;line-height:1.3;margin:0}
+.box{background:var(--card);padding:20px;border-radius:10px;width:100%;max-width:396px;display:flex;flex-direction:column;gap:8px;box-shadow:0 2px 4px rgba(0,0,0,.1),0 8px 16px rgba(0,0,0,.1)}
+.box label{font-weight:600;font-size:14px;margin-top:4px}
+.box input[type=text],.box input[type=email],.box input[type=password]{padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);font-size:16px}
+.box input:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 2px #f2b70566}
+.box hr{border:0;border-top:1px solid var(--line);margin:8px 0}
+.btn{display:block;text-align:center;background:var(--accent);color:var(--on-accent);border:0;border-radius:8px;padding:12px;font-size:18px;font-weight:700;cursor:pointer;margin-top:8px}
+.btn:hover{background:var(--accent-d)}
+.btn-alt{background:var(--dark);color:#fff;margin-top:0}
+.btn-alt:hover{background:#27272a}
+.msg{margin:0 0 4px;padding:10px 12px;border-radius:8px;font-size:14px;list-style:none}
+.msg.err{background:#c81e3a1a;color:var(--red)}
+.msg.ok{background:#1f7a3d1a;color:var(--green)}
+ul.msg{padding-left:12px}
+
+/* ---------- Interfaz principal ---------- */
+.topbar{position:sticky;top:0;z-index:5;height:56px;background:var(--card);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 16px;box-shadow:0 2px 4px rgba(0,0,0,.1)}
+.topbar-left{display:flex;align-items:center;gap:8px}
+.logo{width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--on-accent);font-weight:800;font-size:22px;display:grid;place-items:center}
+.search{background:var(--bg);border:0;border-radius:20px;padding:10px 16px;width:240px}
+.tabs{display:flex;gap:4px}
+.tab{padding:15px 18px;border-bottom:3px solid transparent;color:var(--muted);font-weight:600}
+.tab:hover{background:var(--hover)}
+.tab.on{color:var(--link);border-color:var(--accent)}
+.btn-salir{background:var(--hover);border:0;border-radius:8px;padding:8px 14px;font-weight:600;cursor:pointer}
+.btn-salir:hover{background:var(--line)}
+
+.layout{display:grid;grid-template-columns:260px minmax(0,600px) 260px;justify-content:center;gap:24px;padding:16px}
+.side{position:sticky;top:72px;align-self:start;display:flex;flex-direction:column;gap:2px}
+.side h3{margin:8px 8px 4px;font-size:17px;color:var(--muted)}
+.item{display:flex;align-items:center;gap:12px;padding:8px;border-radius:8px;font-weight:500}
+.item:hover{background:var(--hover)}
+.avatar{width:38px;height:38px;border-radius:50%;background:var(--dark);color:#fff;display:grid;place-items:center;font-weight:700;flex:none}
+.feed{display:flex;flex-direction:column;gap:16px}
+.card{background:var(--card);border-radius:8px;box-shadow:0 1px 2px rgba(0,0,0,.2);padding:12px 16px}
+.compose{display:flex;align-items:center;gap:10px}
+.compose input{flex:1;background:var(--bg);border:0;border-radius:20px;padding:10px 14px}
+.empty{padding:32px;text-align:center;color:var(--muted)}
+
+@media (max-width:1000px){.layout{grid-template-columns:minmax(0,600px)}.side{display:none}.search{display:none}}
+@media (max-width:600px){.tab{padding:15px 10px}}
